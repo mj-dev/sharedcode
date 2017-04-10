@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  has_one :user
-  has_one :image
-  has_many :category
+  belongs_to :user
+  belongs_to :image
+  belongs_to :category
 end

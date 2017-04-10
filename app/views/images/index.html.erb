@@ -2,7 +2,7 @@
 
 <h1>Images</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Path</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= image.path %></td>
         <td><%= image.alt %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', image, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_image_path(image), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', image, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Image', new_image_path %>
+<%= link_to 'New Image', new_image_path, class: 'btn btn-success' %>

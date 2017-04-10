@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_one :image
-  belongs_to :article
+  belongs_to :image
+  has_many :article
 end
