@@ -217,7 +217,15 @@
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="59" parent="10">
+    <column id="59" parent="10" name="admin">
+      <Position>6</Position>
+      <DataType>BOOLEAN(0,-1)|4</DataType>
+    </column>
+    <column id="60" parent="10" name="password_digest">
+      <Position>7</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <key id="61" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
