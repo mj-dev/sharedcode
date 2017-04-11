@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
     user = User.find_by(login: params[:session][:login].downcase)
     # raise user.admin.inspect
     # Use ActiveModel has_secure_password and check digest_password hash
-    if user && user.authenticate(params[:session][:password]) && user.admin && user.active
+    if user && user.authenticate(params[:session][:password]) && user.active
       log_in user
-      redirect_to root_url , flash: {notice: 'Successfully log in'}
+      redirect_to root_url , notice: 'Successfully log in'
     else
       # Create an error message.
-      redirect_to login_url, flash: {notice: 'Invalid email/password combination'}
+      redirect_to login_url, notice: 'Invalid email/password combination'
     end
   end
 

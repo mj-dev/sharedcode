@@ -3,7 +3,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', root_path %></li>
-        <% if logged_in? %>
+        <% if admin_logged_in? %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Espace admin <b class="caret"></b>
@@ -15,6 +15,19 @@
                 <li><%= link_to 'Gestion Images', images_path %></li>
                 <li><%= link_to 'Gestion Catégories', categories_path %></li>
                 <li><%= link_to 'Gestion Commentaires', commentaries_path %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to 'Déconnection', logout_path, method: 'delete' %>
+                </li>
+              </ul>
+            </li>
+        <% elsif logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Espace utilisateur <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Mon Compte', current_user %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to 'Déconnection', logout_path, method: 'delete' %>
