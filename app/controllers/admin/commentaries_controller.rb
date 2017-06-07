@@ -1,9 +1,11 @@
-class CommentariesController < ApplicationController
-  before_action :set_commentary, only: [:edit, :update, :destroy]
-  before_action :set_article, only: [:index]
+class Admin::CommentariesController < Admin::AdminController
+  before_action :set_commentary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @commentaries = Commentary.includes(:mail, :content, :article_id)
+    unless logged_in?
+      redirect_to login_url
+    end
+    @commentaries = Commentary.all
   end
 
   def show
@@ -19,7 +21,7 @@ class CommentariesController < ApplicationController
   def create
     @commentary = Commentary.new(commentary_params)
     if @commentary.save
-      redirect_to :back
+      redirect_to @commentary
     else
       render :new
     end
@@ -46,8 +48,4 @@ class CommentariesController < ApplicationController
     def commentary_params
       params.require(:commentary).permit(:mail, :content, :article_id)
     end
-
-  def set_article
-    @article = Article.find(params[:article_id ])
-  end
 end

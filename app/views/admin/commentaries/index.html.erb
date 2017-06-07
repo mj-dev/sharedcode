@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+  <h1>Liste des commentaires</h1>
+  <hr>
+  <div class="row">
+    <div class="panel panel-primary filterable">
+      <div class="panel-heading">
+        <h3 class="panel-title">Commentaires</h3>
+        <div class="pull-right">
+          <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filtres</button>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+        <tr class="filters">
+          <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Contenu" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Article ID" disabled></th>
+        </tr>
+        </thead>
+        <tbody class="table-striped">
+        <% @commentaries.each do |commentary| %>
+            <tr>
+              <td><%= commentary.mail %></td>
+              <td><%= commentary.content %></td>
+              <td><%= commentary.article_id %></td>
+              <td>
+                <%= link_to 'Modifier', edit_admin_commentary_path(commentary), class: 'btn btn-warning' %>
+                <%= link_to 'Supprimer', admin_commentary_path(commentary),
+                            method: :delete,
+                            data: {
+                                confirm: 'Etes-vous sur de vouloir supprimer ce commentaire ?'
+                            },
+                            class: 'btn btn-danger' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<br>

@@ -1,0 +1,49 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+    <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+      <div class="form-group col-lg-5">
+        <p>
+          <%= f.input :login, label: 'Login', class: 'form-control'%>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-lg-5">
+        <p>
+          <%= f.input :password, label: 'Mot de passe', class: 'form-control'%>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-lg-5">
+        <p>
+          <%= f.number_field :active, label: 'Actif', class: 'form-control'%>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-lg-5">
+        <p>
+          <%= f.check_box :admin, label: 'Est admin', class: 'form-control'%>
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <%= f.submit 'Enregistrer', class: 'btn btn-primary'%>
+    </p>
+<% end %>

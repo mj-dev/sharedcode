@@ -1,4 +1,4 @@
-<%= form_for(commentary) do |f| %>
+<%= simple_form_for @commentary do |f| %>
   <% if commentary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
@@ -11,19 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :mail %>
-    <%= f.text_field :mail %>
+  <div class="row">
+    <div class="form-group col-lg-5">
+      <p>
+        <%= f.input :mail, label: 'Mail', class: 'form-control'%>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
+
+  <div class="row">
+    <div class="form-group col-lg-5">
+      <p>
+        <%= f.input :content, label: 'Contenu', class: 'form-control'%>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :article_id %>
-    <%= f.number_field :article_id %>
+  <div class="row">
+    <div class="form-group col-lg-5">
+      <p>
+        <%= f.input :article_id, label: 'Article ID', class: 'form-control', :as => :hidden, :input_html => { :value => @article.id }%>
+      </p>
+    </div>
   </div>
 
   <div class="actions">
