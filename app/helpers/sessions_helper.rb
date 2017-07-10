@@ -7,6 +7,7 @@ module SessionsHelper
   # Returns the current logged user (if user logged).
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
+    #render :object => @current_user.inspect
   end
 
   # Return if the user is logged

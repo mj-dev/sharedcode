@@ -1,1 +1,8 @@
 <h1>Shared Code</h1>
+
+<h2>Derniers articles</h2>
+<% @articles = get_last_articles %>
+<% @articles.each do |article| %>
+    <p><%= article.name %></p>
+  <h3></h3>
+<% end %>

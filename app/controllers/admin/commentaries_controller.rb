@@ -37,7 +37,7 @@ class Admin::CommentariesController < Admin::AdminController
 
   def destroy
     @commentary.destroy
-    redirect_to commentaries_url
+    redirect_to admin_commentaries_url
   end
 
   private

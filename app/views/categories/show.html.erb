@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <h1><%= @category.name %></h1>
 </p>
 
 <p>
-  <strong>Id image:</strong>
-  <%= @category.image_id %>
+  <%= image_tag(@image.path, alt: @image.alt)%>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
+<% if @articles.nil? %>
+  <p>Pas d'article</p>
+<% else %>
+    <% @articles.each do |article| %>
+        <p>
+          <%= link_to article.name, article %>
+        </p>
+    <% end %>
+<% end %>
+
 <%= link_to 'Back', categories_path %>

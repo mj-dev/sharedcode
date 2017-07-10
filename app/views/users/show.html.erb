@@ -6,19 +6,41 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <%= image_tag @user.avatar.url(:thumb) %>
 </p>
 
 <p>
-  <strong>Active:</strong>
-  <%= @user.active %>
+  <strong>Actif:</strong>
+  <% if @user.active == 1 %>
+    <%= 'Oui' %>
+  <% else %>
+    <%= 'Non' %>
+  <% end %>
 </p>
 
 <p>
   <strong>Admin:</strong>
-  <%= @user.admin %>
+  <% if @user.admin == true %>
+      <%= 'Oui' %>
+  <% else %>
+      <%= 'Non' %>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h3>Liste des articles de <%= @user.login %></h3>
+
+<% @articles.each do |article| %>
+    <p>
+      <%= article.name %>
+      <%= link_to 'Afficher', article %>
+      <%= link_to 'Modifier', edit_article_path %>
+      <%= link_to 'Supprimer', article_path(article),
+                  method: :delete,
+                  data: {
+                      confirm: 'Etes-vous sur de vouloir supprimer cet article ?'
+                  }%>
+    </p>
+<% end %>
+
+<%= link_to 'Ecrire un article', new_article_path, class: 'btn btn-default' %>
+<%= link_to 'Editer son profil', edit_user_path, class: 'btn btn-default' %>

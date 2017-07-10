@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   root :controller => 'public', :action => 'index'
+  get '/mon-compte', to: 'users#show'
   resources :articles
   resources :commentaries
   resources :categories

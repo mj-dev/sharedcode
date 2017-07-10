@@ -37,7 +37,7 @@ class Admin::ImagesController < Admin::AdminController
 
   def destroy
     @image.destroy
-    redirect_to images_url
+    redirect_to admin_images_url
   end
 
   private

@@ -37,7 +37,7 @@ class Admin::UsersController < Admin::AdminController
 
   def destroy
     @user.destroy
-    redirect_to users_url
+    redirect_to admin_users_url
   end
 
   private

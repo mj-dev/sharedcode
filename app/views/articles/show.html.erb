@@ -3,18 +3,20 @@
 <h4>Crée par : <%= @user.login %></h4>
 
 <p>
-  <%= @category.name %>
+  <%= link_to @category.name, @category %>
 </p>
 
 <p>
-  <%= @article.content %>
+  <%= raw @article.content %>
 </p>
 
 <%= image_tag(@image.path, alt: @image.alt)%>
 
 <%=  render :template => 'commentaries/index' %>
 
-<%=  render :template => 'commentaries/new' %>
+<% if logged_in? %>
+    <%=  render :template => 'commentaries/new' %>
+<% end %>
 
 
 

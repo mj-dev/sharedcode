@@ -18,17 +18,19 @@
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label :active %>
-    <%= f.number_field :active %>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
+    <%= f.hidden_field :active, value: 1%>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :admin, value: 'false' %>
   </div>
 
   <div class="actions">

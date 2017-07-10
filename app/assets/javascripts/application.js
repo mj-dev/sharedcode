@@ -16,6 +16,7 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-wysihtml5
 $(document).ready(function(){
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),

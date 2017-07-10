@@ -25,4 +25,9 @@ module ApplicationHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def get_last_articles
+    @lastarticles = Article.last(1-3)
+    return @lastarticles
+  end
 end
