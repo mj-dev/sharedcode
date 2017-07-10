@@ -1,5 +1,5 @@
-<%= form_for(commentary) do |f| %>
-  <% if commentary.errors.any? %>
+<%= simple_form_for [:admin, @commentary] do |f| %>
+    <% if commentary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
 

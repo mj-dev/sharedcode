@@ -1,5 +1,5 @@
 class Admin::CommentariesController < Admin::AdminController
-  before_action :set_commentary, only: [:show, :edit, :update, :destroy]
+  before_action :set_commentary, only: [:edit, :update, :destroy]
 
   def index
     unless logged_in?
@@ -8,28 +8,12 @@ class Admin::CommentariesController < Admin::AdminController
     @commentaries = Commentary.all
   end
 
-  def show
-  end
-
-  def new
-    @commentary = Commentary.new
-  end
-
   def edit
-  end
-
-  def create
-    @commentary = Commentary.new(commentary_params)
-    if @commentary.save
-      redirect_to @commentary
-    else
-      render :new
-    end
   end
 
   def update
     if @commentary.update(commentary_params)
-      redirect_to @commentary
+      redirect_to admin_commentaries_path
     else
       render :edit
     end
