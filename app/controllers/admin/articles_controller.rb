@@ -5,7 +5,6 @@ class Admin::ArticlesController < Admin::AdminController
     @articles = Article.includes(:image, :user, :category)
   end
 
-
   def new
     @article = Article.new
   end

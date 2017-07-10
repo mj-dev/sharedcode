@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <img src="<%= @image.path %>" alt="">
+</p>
+
+<p>
   <strong>Path:</strong>
   <%= @image.path %>
 </p>
@@ -10,5 +14,5 @@
   <%= @image.alt %>
 </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Modifier', edit_admin_image_path(@image), class: 'btn btn-warning' %>
+<%= link_to 'Retour', admin_images_path, class: 'btn btn-default' %>
