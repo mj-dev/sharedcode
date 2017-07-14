@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to admin_root_url , notice: 'Authentification réussie'
     else
-      # Create an error message.
       redirect_to login_url, notice: 'Email ou mot de passe incorrect'
     end
   end

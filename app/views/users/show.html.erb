@@ -32,9 +32,9 @@
 <% @articles.each do |article| %>
     <p>
       <%= article.name %>
-      <%= link_to 'Afficher', article %>
-      <%= link_to 'Modifier', edit_article_path %>
-      <%= link_to 'Supprimer', article_path(article),
+      <%= link_to 'Afficher', article, class: 'btn btn-success' %>
+      <%= link_to 'Modifier', edit_admin_article_path(article), class: 'btn btn-warning' %>
+      <%= link_to 'Supprimer', admin_articles_path(article), class: 'btn btn-danger',
                   method: :delete,
                   data: {
                       confirm: 'Etes-vous sur de vouloir supprimer cet article ?'

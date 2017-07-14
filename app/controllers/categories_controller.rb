@@ -15,10 +15,6 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
     end
 
-    def category_params
-      params.require(:category).permit(:name, :image_id)
-    end
-
     def set_articles
       @articles = Article.where(category_id: params[:id])
     end

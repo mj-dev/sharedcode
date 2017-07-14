@@ -6,7 +6,6 @@ include SessionsHelper
 
 
   def index
-    # Used as homepage for the administration of the website.
   end
 
 

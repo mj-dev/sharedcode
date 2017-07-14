@@ -1,10 +1,8 @@
 class Admin::CategoriesController < Admin::AdminController
+  before_action :logged_admin
   before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
-    unless logged_in?
-      redirect_to login_url
-    end
     @categories = Category.includes(:image)
   end
 
@@ -44,5 +42,11 @@ class Admin::CategoriesController < Admin::AdminController
 
     def category_params
       params.require(:category).permit(:name, :image_id)
+    end
+
+    def logged_admin
+      if current_user.admin != true
+        redirect_to current_user
+      end
     end
 end

@@ -3,6 +3,7 @@
 <h2>Derniers articles</h2>
 <% @articles = get_last_articles %>
 <% @articles.each do |article| %>
-    <p><%= article.name %></p>
-  <h3></h3>
+    <h3><%= link_to article.name, article %></h3>
+    <% @image_article = Image.find(article.image_id) %>
+    <img src="<%= @image_article.path %>" alt="<%= @image_article.alt %>">
 <% end %>

@@ -1,16 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update]
   before_action :get_user_articles, only: [:show]
 
-  def index
-    @users = User.all
-  end
-
   def show
-
-    #abort current_user.id.inspect
-    #abort @user.id.inspect
-
     if current_user.id != @user.id
       redirect_to current_user
     end
@@ -21,6 +13,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user.id != current_user.id
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def create
@@ -39,11 +34,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_url
   end
 
   private

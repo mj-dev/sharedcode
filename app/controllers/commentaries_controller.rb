@@ -1,4 +1,5 @@
 class CommentariesController < ApplicationController
+  before_action :is_logged , only: [:edit, :new, :destroy]
   before_action :set_commentary, only: [:edit, :update, :destroy]
   before_action :set_article, only: [:index]
 
@@ -6,14 +7,8 @@ class CommentariesController < ApplicationController
     @commentaries = Commentary.includes(:mail, :content, :article_id)
   end
 
-  def show
-  end
-
   def new
     @commentary = Commentary.new
-  end
-
-  def edit
   end
 
   def create
@@ -23,19 +18,6 @@ class CommentariesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    if @commentary.update(commentary_params)
-      redirect_to @commentary
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @commentary.destroy
-    redirect_to commentaries_url
   end
 
   private
@@ -50,4 +32,11 @@ class CommentariesController < ApplicationController
   def set_article
     @article = Article.find(params[:article_id ])
   end
+
+  def is_logged
+    if !logged_in?
+      redirect_to login_path
+    end
+  end
+
 end

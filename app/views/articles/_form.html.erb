@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @article] do |f| %>
+<%= simple_form_for @article do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -35,13 +35,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="form-group col-lg-5">
-      <p>
-        <%= f.association :user, label_method: :login, value_method: :id, label:'Utilisateur', class: 'form-control'%>
-      </p>
-    </div>
-  </div>
+  <%= f.hidden_field :user_id, value: current_user.id%>
 
   <div class="row">
     <div class="form-group col-lg-5">

@@ -3,7 +3,7 @@ class PublicController < ApplicationController
 
 
   def index
-    # Used as homepage for the public side of the website.
+
   end
 
 end

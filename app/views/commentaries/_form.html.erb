@@ -11,14 +11,7 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="form-group col-lg-5">
-      <p>
-        <%= f.hidden_field :mail, label: 'Mail', class: 'form-control', value: @current_user.login %>
-      </p>
-    </div>
-  </div>
-
+  <%= f.hidden_field :mail, value: current_user.login %>
 
   <div class="row">
     <div class="form-group col-lg-5">

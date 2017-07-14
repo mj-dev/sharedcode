@@ -1,10 +1,8 @@
 class Admin::UsersController < Admin::AdminController
+  before_action :logged_admin
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    unless logged_in?
-      redirect_to login_url
-    end
     @users = User.all
   end
 
@@ -44,5 +42,11 @@ class Admin::UsersController < Admin::AdminController
 
     def user_params
       params.require(:user).permit(:login, :password, :active, :admin)
+    end
+
+    def logged_admin
+      if current_user.admin != true
+        redirect_to current_user
+      end
     end
 end

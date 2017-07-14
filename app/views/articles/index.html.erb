@@ -7,8 +7,8 @@
     <tr>
       <th>Nom</th>
       <th>Contenu</th>
-      <th>Chemin image</th>
-      <th>Utilisateur</th>
+      <th>Illustration</th>
+      <th>Auteur</th>
       <th>Catégorie</th>
     </tr>
   </thead>
@@ -23,7 +23,7 @@
               <% if image.nil? %>
                   Aucune
               <% else %>
-                  <%= image.path %>
+                  <%= image_tag(image.path, size: '70x70') %>
               <% end %>
             </td>
             <td>

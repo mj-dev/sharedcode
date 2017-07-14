@@ -1,4 +1,5 @@
 class ArticlesController < PublicController
+  before_action :is_logged, only: [:edit, :new]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show]
   before_action :set_image, only: [:show]
@@ -18,6 +19,23 @@ class ArticlesController < PublicController
   def show
     @commentaries = Commentary.where(article_id: params[:id])
     @commentary = Commentary.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -43,5 +61,15 @@ class ArticlesController < PublicController
   def set_category
     article = set_article
     @category = Category.find(article.category_id)
+  end
+
+  def article_params
+    params.require(:article).permit(:name, :content, :image_id, :user_id, :category_id)
+  end
+
+  def is_logged
+    if !logged_in?
+      redirect_to login_path
+    end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708165843) do
+ActiveRecord::Schema.define(version: 20170714113201) do
 
   create_table "articles", force: :cascade do |t|
     t.text    "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170708165843) do
     t.integer "image_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["image_id"], name: "index_articles_on_image_id"
-    t.index ["user_id"], name: "index_articles_on_user_id", unique: true
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|

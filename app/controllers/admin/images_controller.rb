@@ -1,10 +1,8 @@
 class Admin::ImagesController < Admin::AdminController
+  before_action :logged_admin
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   def index
-    unless logged_in?
-      redirect_to login_url
-    end
     @images = Image.all
   end
 
@@ -47,5 +45,11 @@ class Admin::ImagesController < Admin::AdminController
 
     def image_params
       params.require(:image).permit(:path, :alt)
+    end
+
+    def logged_admin
+      if current_user.admin != true
+        redirect_to current_user
+      end
     end
 end

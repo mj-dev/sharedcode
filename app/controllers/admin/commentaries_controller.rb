@@ -1,10 +1,8 @@
 class Admin::CommentariesController < Admin::AdminController
+  before_action :logged_admin
   before_action :set_commentary, only: [:edit, :update, :destroy]
 
   def index
-    unless logged_in?
-      redirect_to login_url
-    end
     @commentaries = Commentary.all
   end
 
@@ -31,5 +29,11 @@ class Admin::CommentariesController < Admin::AdminController
 
     def commentary_params
       params.require(:commentary).permit(:mail, :content, :article_id)
+    end
+
+    def logged_admin
+      if current_user.admin != true
+        redirect_to current_user
+      end
     end
 end

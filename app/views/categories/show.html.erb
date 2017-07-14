@@ -13,9 +13,9 @@
 <% else %>
     <% @articles.each do |article| %>
         <p>
-          <%= link_to article.name, article %>
+          <%= link_to article.name, article, class: 'btn btn-default' %>
         </p>
     <% end %>
 <% end %>
 
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Retour à la liste', categories_path, class: 'btn btn-info' %>
