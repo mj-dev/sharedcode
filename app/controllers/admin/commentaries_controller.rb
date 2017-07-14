@@ -32,7 +32,7 @@ class Admin::CommentariesController < Admin::AdminController
     end
 
     def logged_admin
-      if current_user.admin != true
+      if !admin_logged_in?
         redirect_to current_user
       end
     end

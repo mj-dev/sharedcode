@@ -56,9 +56,9 @@ class Admin::ArticlesController < Admin::AdminController
       end
     end
 
-  def logged_admin
-    if current_user.admin != true
-      redirect_to current_user
+    def logged_admin
+      if !admin_logged_in?
+        redirect_to current_user
+      end
     end
-  end
 end
