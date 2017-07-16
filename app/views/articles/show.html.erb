@@ -10,7 +10,8 @@
   <%= raw @article.content %>
 </p>
 
-<%= image_tag(@image.path, alt: @image.alt)%>
+<%= image_tag(@image.path, alt: @image.alt, size: '200x200')%>
+
 
 <%=  render :template => 'commentaries/index' %>
 

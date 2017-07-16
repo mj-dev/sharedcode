@@ -16,7 +16,7 @@ class Admin::UsersController < Admin::AdminController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      redirect_to admin_users_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::UsersController < Admin::AdminController
 
   def update
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to admin_users_path
     else
       render :edit
     end

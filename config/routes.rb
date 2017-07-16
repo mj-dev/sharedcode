@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   resources :commentaries, :only => [:index, :new, :create]
   resources :categories, :only => [:index, :show]
   resources :users, :only => [:show, :new, :edit, :create, :update]
-  resources :sessions, :onlyv => [:new, :create]
+  resources :sessions, :only => [:new, :create]
 
   namespace :admin do
     root :controller => 'admin', :action => 'index'
     resources :articles
-    resources :commentaries
+    resources :commentaries, :only => [:index, :edit, :update, :destroy]
     resources :categories
     resources :images
     resources :users
