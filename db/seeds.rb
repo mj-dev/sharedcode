@@ -1,5 +1,5 @@
 User.create!([
-  {login: "root", password: nil, active: 1, admin: false, password_digest: "$2a$10$M97vRSWmvmPkXMfqazQjoes1KsfpYd9oigBXQ6sdwq9pkRrFLsO/C", avatar_file_name: "wallhaven-78237.jpg", avatar_content_type: "image/jpeg", avatar_file_size: 346500, avatar_updated_at: "2017-07-16 12:38:16"},
+  {login: "root", password: nil, active: 1, admin: true, password_digest: "$2a$10$M97vRSWmvmPkXMfqazQjoes1KsfpYd9oigBXQ6sdwq9pkRrFLsO/C", avatar_file_name: "wallhaven-78237.jpg", avatar_content_type: "image/jpeg", avatar_file_size: 346500, avatar_updated_at: "2017-07-16 12:38:16"},
   {login: "user0", password: nil, active: 1, admin: false, password_digest: "$2a$10$w82HfHbMSqM.X6yumnYEFeZKk9eUgnYLLd88jDfowuY5iv.SpQzni", avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil},
   {login: "user1", password: nil, active: 1, admin: false, password_digest: "$2a$10$6batGP1cSQqb3iYtWiK3GONyup7Sriv2JnhsI8CjU0atWhDLE56Tm", avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil},
   {login: "user2", password: nil, active: 1, admin: false, password_digest: "$2a$10$9FWH4FYIG/Q2saWMjppM8OpoiRJPNhMOzs8tDsEA5kXCR2ugS1aM.", avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil},
